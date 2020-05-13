@@ -20,11 +20,11 @@ public class Calculator {
             estNegatif= !estNegatif;
         }
 
-        if (a == 666) {
-            if (b == 666) {
-                System.out.println("cette partie de code n'est pas testée !");
-            }
-        }
+//        if (a == 666) {
+//            if (b == 666) {
+//                System.out.println("cette partie de code n'est pas testée !");
+//            }
+//        }
 
         int resultat;
 

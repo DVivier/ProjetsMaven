@@ -11,7 +11,7 @@ import java.text.MessageFormat;
 import java.time.Duration;
 import java.time.Instant;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class AppTest {
 
@@ -40,7 +40,9 @@ class AppTest {
 
         int somme = calculator.add(a, b);
 
-        assertEquals(3,somme,"pas bon");
+//        assertEquals(3,somme,"pas bon");
+//        System.out.println(somme);
+        assertThat(somme).isEqualTo(3);
     }
 
     //------------------
@@ -52,7 +54,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(0,resultatMultiplication,"pas bon");
+//        assertEquals(0,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isZero();
     }
 
     //------------------
@@ -62,7 +65,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(arg, 0);
 
-        assertEquals(0, resultatMultiplication);
+//        assertEquals(0, resultatMultiplication);
+        assertThat(resultatMultiplication).isZero();
     }
 
     //------------------
@@ -74,7 +78,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(6,resultatMultiplication,"pas bon");
+//        assertEquals(6,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isEqualTo(6);
     }
 
 
@@ -87,8 +92,10 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(3,resultatMultiplication,"pas bon");
+//        assertEquals(3,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isEqualTo(3);
     }
+
 
 
     //------------------
@@ -100,7 +107,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(9,resultatMultiplication,"pas bon");
+//        assertEquals(9,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isEqualTo(9);
     }
 
     //------------------
@@ -110,7 +118,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(resultatAttendu,resultatMultiplication,"pas bon");
+//        assertEquals(resultatAttendu,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isEqualTo(resultatAttendu);
     }
 
 
@@ -123,7 +132,8 @@ class AppTest {
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(-3,resultatMultiplication,"pas bon");
+//        assertEquals(-3,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).isEqualTo(-3);
     }
 
 
@@ -133,10 +143,15 @@ class AppTest {
 
         int a = -4;
         int b = -3;
+//        int attendu = 12;
+        int attendu = 11;
 
         int resultatMultiplication = calculator.multiply(a, b);
 
-        assertEquals(12,resultatMultiplication,"pas bon");
+//        assertEquals(12,resultatMultiplication,"pas bon");
+        assertThat(resultatMultiplication).as("resultat de deux négatifs :").isEqualTo(12);
+//        assertThat(resultatMultiplication).as("resultat de deux négatifs :").isEqualTo(11);
+//        assertThat(resultatMultiplication).withFailMessage("doit être égal à %s, et pas à %s" , attendu, resultatMultiplication).isEqualTo(11);
     }
 
 }
